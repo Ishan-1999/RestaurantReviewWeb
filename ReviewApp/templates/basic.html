@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>{% block title %} {% endblock %}</title>
+    <style type="text/css">
+       {% load static %}
+       .main {
+        background-image: url('{% static 'fish.jpg' %}');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+       }
+       .navbar {
+        opacity: 75%;
+        background-color: black;
+        padding: 0px;
+       }
+       .nav-item:hover {
+        background-color: orange;
+       }
+       .icon {
+        width: 25px;
+        height: 25px;
+       }
+       .nav-link {
+        font-size: 20px;
+       }
+       .navbar-brand {
+        padding-left: 10px;
+       }
+       .review {
+          background-color: orange;
+          border-color: orange;
+          color: white;
+        }
+        .review:hover {
+           box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+       {% block css %}
+       {% endblock %}
+    </style>
+  </head>
+  <body>
+    {% load static %}
+    <div class="main mb-20" style="min-height: 800px">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/"><img src="{% static 'logo.jpg' %}" style="height: 60px; width: 60px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item" id="menu">
+              <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+            </li>
+            <li class="nav-item" id="gallery">
+              <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+            </li>
+            <li class="nav-item" id="reviews">
+              <a class="nav-link" href="{% url 'reviews' %}">Reviews</a>
+            </li>
+            <li class="nav-item" id="about">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+            <li class="nav-item" id="contact">
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+          </ul>
+          <a href="{% url 'write_review' %}"><button type="button" class="btn mb-2 mr-2 float-right review">Write A Review</button></a>
+        </div>
+      </nav>
+      {% block body %}  {% endblock %}
+    </div>
+    <!-- Footer -->
+    <div>
+      <footer class="page-footer font-small blue-grey lighten-5">
+
+        <div style="background-color: orange;">
+          <div class="container">
+            <div class="row py-4 d-flex align-items-center">
+              <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                <h6 class="mb-0" style="font-size: 18px; color: white">Get connected with us on social networks!</h6>
+              </div>
+              <div class="col-md-6 col-lg-7 text-center text-md-right">
+                <a href="https://www.facebook.com/Relekars-Kokani-Kitchen-109474680644143/"  target="_blank" class="fb-ic">
+                  <img class="icon" src="{% static 'fb.png' %}">
+                </a>
+                <a href="https://instagram.com/relekarskokanikitchen?igshid=dddwlhj5l38y"  target="_blank" class="ig-ic"  >
+                  <img class="icon" src="{% static 'ig.png' %}">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Links -->
+        <div class="container-fluid text-center text-md-left mt-5">
+          <div class="row mt-3 dark-grey-text">
+            <div class="col-md-2 col-lg-1 col-xl-1 mb-4" align="center">
+              <img src="{% static 'logo.jpg' %}" style="height: 60px; width: 60px">
+            </div>
+            <div class="col-md-4 col-lg-5 col-xl-4 mb-4">
+              <h6 class="text-uppercase font-weight-bold">Kokani Kitchen</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>Brings you the most delicious homemade seafood. Fresh catch, authentic flavours and special kokani spices at your doorstep.</p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-1">
+              <h6 class="text-uppercase font-weight-bold">Working Time</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                MON-FRI: 9AM TO 12AM
+              </p>
+              <p>
+                SAT-SUN: 24 HOUR OPEN
+              </p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase font-weight-bold">Contact</h6>
+              <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+              <p>
+                KHARAR, PUNJAB 140413, IN</p>
+              <p>
+                info@example.com</p>
+              <p>
+               + 01 234 567 88</p>
+              <p>
+               + 01 234 567 89</p>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-black-50 py-3"><b>© 2020 | Designed by: Ishan Sharma | <a href="https://www.facebook.com/ishan.sharma.587606"  target="_blank" class="fb-ic">
+                  <img class="icon" src="{% static 'fb.png' %}">
+                </a> <a href="https://instagram.com/__pokerface__20__?igshid=scahi8z5vasx"  target="_blank" class="ig-ic"  >
+                  <img class="icon" src="{% static 'ig.png' %}">
+                </a> | All Rights Reserved.</b>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    {% block js %} {% endblock %}
+  </body>
+</html>

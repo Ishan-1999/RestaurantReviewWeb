@@ -1,0 +1,49 @@
+{% extends 'basic.html' %}
+{% block title %}Welcome to Kokani Kitchen{% endblock %}
+
+{% block css %}
+.para {
+	background-color: hsla(120, 60%, 70%, 0.3);
+	font-family: 'Dancing Script';
+	font-size: 20px;
+	height: 300px;
+}
+.collage {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<img class="collage mt-5" src="{% static 'collage1.jpg' %}" height="400px">
+		</div>
+		<div class="col-md-6 mt-5" align="center" style="color: white;">
+			<h2><b>Heading</b></h2>
+			<p class="para">Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant or animal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth.
+
+			Historically, humans secured food through two methods: hunting and gathering and agriculture, which gave modern humans a mainly omnivorous diet. Worldwide, humanity has created numerous cuisines and culinary arts, including a wide array of ingredients, herbs, spices, techniques.</p>
+
+		</div>	
+	</div>
+	<div class="row mt-5">
+		<div class="col-md-6 mt-5" align="center" style="color: white;">
+			<h2><b>Heading</b></h2>
+			<p  class="para">Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant or animal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth.
+
+			Historically, humans secured food through two methods: hunting and gathering and agriculture, which gave modern humans a mainly omnivorous diet. Worldwide, humanity has created numerous cuisines and culinary arts, including a wide array of ingredients, herbs, spices, techniques.</p>
+		</div>
+		<div class="col-md-6">
+			<img class="collage mt-5" src="{% static 'collage2.jpg' %}" height="400px">
+		</div>	
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</div>
+{% endblock %}

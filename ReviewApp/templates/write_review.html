@@ -1,0 +1,90 @@
+{% extends 'basic.html' %}
+{% block title %}Welcome to Kokani Kitchen | Write A Review{% endblock %}
+
+{% block css %}
+.form {
+	color: white;
+	font-size: 20px;
+}
+.submit {
+	background-color: orange;
+	border-color: orange;
+	color: white;
+}
+.submit:hover {
+	 box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.form-control {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="form container mt-5">
+	<div class="row">
+		<div class="col-md-6">
+			<form method="post" action="{% url 'write_review' %}"> {% csrf_token %}
+              <input type="hidden" name="date" id="date">
+              <input type="hidden" name="time" id="time">	
+			  <div class="form-group">
+			    <label for="name">Name</label>
+			    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+			  </div>	
+			  <div class="form-group">
+			    <label for="email">Email address</label>
+			    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+			  </div>
+			  <div class="form-group">
+			    <label for="phone">Phone Number</label>
+			    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter Your Ph No.">
+			  </div>
+			   <div class="form-group">
+			    <label for="ratings">Rating</label>
+			    <select class="form-control" id="ratings" name="ratings">
+			      <option>1</option>
+			      <option>2</option>
+			      <option>3</option>
+			      <option>4</option>
+			      <option>5</option>
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label for="review">Please share your experience:</label>
+			    <textarea class="form-control" id="review" name="review" rows="5"></textarea>
+			  </div>
+			  <button type="submit" class="btn mb-2 float-right submit">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-6" align="center">
+			<img src="{% static 'ads.jpg' %}" height="550px" style="margin-top: 30px;">
+		</div>
+
+	</div>
+
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+function getDate()
+{
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){dd='0'+dd} 
+    if(mm<10){mm='0'+mm}
+    today = dd+"-"+mm+"-"+yyyy;
+
+    document.getElementById("date").value = today;
+    var today2 = new Date();
+    var time = today2.getHours() + ":" + today2.getMinutes(); 
+    console.log(time);
+        
+}
+
+//call getDate() when loading the page
+getDate();
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'basic.html' %}
+{% block title %}Welcome to Kokani Kitchen | Menu{% endblock %}
+
+
+{% block css %}
+.menu {
+	padding: 30px;
+}
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div class="container" align="center">
+	<span><img class="menu" src="{% static 'menu.jpg' %}" height="800px" width="900px"></span>
+</div>
+{% endblock %}
+
+{% block js %}
+<script>
+	document.getElementById('menu').setAttribute("class", "nav-item active");
+</script>
+{% endblock %}
