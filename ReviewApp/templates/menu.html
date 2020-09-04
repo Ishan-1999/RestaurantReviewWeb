@@ -3,15 +3,38 @@
 
 
 {% block css %}
-.menu {
-	padding: 30px;
+.card {
+	width: 18rem; 
+	margin: 10px; 
+	background-color: orange; 
+	font-weight: bold; 
+	padding-top: 2px; 
+	padding-left: 5px; 
+	padding-right: 5px; 
+	margin-bottom: 2px; 
+	border: 2px solid white;
+}
+.content {
+	color: black; 
+	margin-top: 5px; 
+	margin-left: 5px; 
+	font-family: 'Grandstander'; 
+	font-size:10px; 
 }
 {% endblock %}
 
 {% block body %}
-{% load static %}
-<div class="container" align="center">
-	<span><img class="menu" src="{% static 'menu.jpg' %}" height="800px" width="900px"></span>
+<div class="container" style="padding-top: 10px; padding-left: 130px;">
+	<h4 style="font-weight: bold; color: white;">Misc</h4>
+	<div class="row" style="padding: 10px;">
+		{% for item in menu %}
+		{% if item.category == 'Misc' %}
+		<div class="card" style="width: 18rem; margin: 10px; background-color: orange; font-weight: bold; padding-top: 2px; padding-left: 5px; padding-right: 5px; margin-bottom: 2px; border: 2px solid white;">
+			<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+		</div>
+		{% endif %}
+		{% endfor %}
+	</div><br>
 </div>
 {% endblock %}
 

@@ -25,3 +25,13 @@ class Contact(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Menu(models.Model):
+    dish_id = models.AutoField(primary_key=True)
+    dname = models.CharField(max_length=50, default="")
+    category = models.CharField(max_length=50, default="")
+    dprice = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.dname

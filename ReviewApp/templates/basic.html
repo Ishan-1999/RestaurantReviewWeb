@@ -43,7 +43,6 @@
         }
         .review:hover {
            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        }
        {% block css %}
        {% endblock %}
     </style>
@@ -59,6 +58,9 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item" id="home">
+              <a class="nav-link" href="/">Home</a>
+            </li>
             <li class="nav-item" id="menu">
               <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
@@ -127,7 +129,7 @@
               <h6 class="text-uppercase font-weight-bold">Contact</h6>
               <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
               <p>
-                KHARAR, PUNJAB 140413, IN</p>
+                KOKANI KITCHEN, PUNE, IN</p>
               <p>
                 info@example.com</p>
               <p>

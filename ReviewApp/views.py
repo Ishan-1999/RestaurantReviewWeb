@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Review, Contact
+from .models import Review, Contact, Menu
 
 
 # Create your views here.
@@ -8,7 +8,9 @@ def index(request):
 
 
 def menu(request):
-    return render(request, 'menu.html')
+    menu = Menu.objects.all()
+    
+    return render(request, 'menu.html', {'menu': menu})
 
 
 def gallery(request):

@@ -5,6 +5,12 @@
 .aboutimg {
 	border-radius: 60%;
 }
+@media (min-width: 544px) {
+	.aboutpara {font-size:1rem;}
+}
+@media (min-width: 992px) {
+	.aboutpara {font-size:1.2rem;}
+}
 {% endblock %}
 
 {% block body %}
@@ -12,18 +18,18 @@
 <div class="container about mt-5">
 	<div class="row" style="padding-bottom: 50px">
 		<div class="col-md-4">
-			<img class="aboutimg" src="{% static 'aboutpic1.jpg' %}" height="300px">
+			<img class="img-fluid aboutimg" src="{% static 'aboutpic1.jpg' %}" height="300px">
 		</div>
 		<div class="col-md-8">
-			<p style="font-size: 25px; color: white">In 1976, if you had told fourteen-year-old Franciscan seminary student Thomas Cruise Mapother IV that one day in the not too distant future he would be Tom Cruise, one of the top 100 movie stars of all time, he would have probably grinned and told you that his ambition was to join the priesthood. Nonetheless, this sensitive, deeply religious youngster who was born in 1962 in Syracuse, New York, was destined to become one of the highest paid and most sought after actors in screen history.</p>
+			<p class="aboutpara" style="color: white; padding-top:30px">In 1976, if you had told fourteen-year-old Franciscan seminary student Thomas Cruise Mapother IV that one day in the not too distant future he would be Tom Cruise, one of the top 100 movie stars of all time, he would have probably grinned and told you that his ambition was to join the priesthood. Nonetheless, this sensitive, deeply religious youngster who was born in 1962 in Syracuse, New York, was destined to become one of the highest paid and most sought after actors in screen history.</p>
 		</div>		
 	</div>
 	<div class="row" style="padding-bottom: 20px">
 		<div class="col-md-8">
-			<p style="font-size: 25px; color: white">American actor Mark Wahlberg is one of a handful of respected entertainers who successfully made the transition from teen pop idol to acclaimed actor. A Best Supporting Actor Oscar nominee for The Departed (2006) who went on to receive positive critical reviews for his performance in The Fighter (2010), Wahlberg also is a solid comedy actor, proven by his starring role in Ted (2012).</p>
+			<p class="aboutpara" style="color: white; padding-top:30px">American actor Mark Wahlberg is one of a handful of respected entertainers who successfully made the transition from teen pop idol to acclaimed actor. A Best Supporting Actor Oscar nominee for The Departed (2006) who went on to receive positive critical reviews for his performance in The Fighter (2010), Wahlberg also is a solid comedy actor, proven by his starring role in Ted (2012).</p>
 		</div>
 		<div class="col-md-4">
-			<img class="aboutimg" src="{% static 'aboutpic2.jpg' %}" height="300px">
+			<img class="img-fluid aboutimg" src="{% static 'aboutpic2.jpg' %}" height="300px">
 		</div>		
 	</div>
 </div>
