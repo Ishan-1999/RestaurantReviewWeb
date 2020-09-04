@@ -8,9 +8,13 @@ def index(request):
 
 
 def menu(request):
-    menu = Menu.objects.all()
-    
-    return render(request, 'menu.html', {'menu': menu})
+    misc = Menu.objects.filter(category = 'Misc')
+    biryani = Menu.objects.filter(category = 'Biryani')
+    veg = Menu.objects.filter(category = 'Veg')
+    curries = Menu.objects.filter(category = 'Curries')
+    fishfry = Menu.objects.filter(category = 'Fish Fry')
+
+    return render(request, 'menu.html', {'misc': misc, 'biryani': biryani, 'veg': veg, 'curries': curries, 'fishfry': fishfry})
 
 
 def gallery(request):

@@ -9,49 +9,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <title>{% block title %} {% endblock %}</title>
-    <style type="text/css">
-       {% load static %}
-       .main {
-        background-image: url('{% static 'fish.jpg' %}');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-       }
-       .navbar {
-        opacity: 75%;
-        background-color: black;
-        padding: 0px;
-       }
-       .nav-item:hover {
-        background-color: orange;
-       }
-       .icon {
-        width: 25px;
-        height: 25px;
-       }
-       .nav-link {
-        font-size: 20px;
-       }
-       .navbar-brand {
-        padding-left: 10px;
-       }
-       .review {
-          background-color: orange;
-          border-color: orange;
-          color: white;
-        }
-        .review:hover {
-           box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-       {% block css %}
-       {% endblock %}
-    </style>
+    {% block css %} {% endblock %}
   </head>
   <body>
     {% load static %}
-    <div class="main mb-20" style="min-height: 800px">
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="/"><img src="{% static 'logo.jpg' %}" style="height: 60px; width: 60px"></a>
+    <div class="main mb-20" style="min-height: 800px; background-image: url('{% static 'fish.jpg' %}');background-position: center center; background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="opacity: 75%; background-color: black; padding: 0px;">
+        <a class="navbar-brand" href="/"><img src="{% static 'logo.jpg' %}" style="height: 60px; width: 60px; margin-left: 10px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,25 +23,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item" id="home">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/" style="font-size: 20px;">Home</a>
             </li>
             <li class="nav-item" id="menu">
-              <a class="nav-link" href="{% url 'menu' %}">Menu</a>
+              <a class="nav-link" href="{% url 'menu' %}" style="font-size: 20px;">Menu</a>
             </li>
             <li class="nav-item" id="gallery">
-              <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+              <a class="nav-link" href="{% url 'gallery' %}" style="font-size: 20px;">Gallery</a>
             </li>
             <li class="nav-item" id="reviews">
-              <a class="nav-link" href="{% url 'reviews' %}">Reviews</a>
+              <a class="nav-link" href="{% url 'reviews' %}" style="font-size: 20px;">Reviews</a>
             </li>
             <li class="nav-item" id="about">
-              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+              <a class="nav-link" href="{% url 'about' %}" style="font-size: 20px;">About Us</a>
             </li>
             <li class="nav-item" id="contact">
-              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+              <a class="nav-link" href="{% url 'contact' %}" style="font-size: 20px;">Contact Us</a>
             </li>
           </ul>
-          <a href="{% url 'write_review' %}"><button type="button" class="btn mb-2 mr-2 float-right review">Write A Review</button></a>
+          <a href="{% url 'write_review' %}"><button type="button" class="btn mb-2 mr-2 float-right review" style="background-color: orange; border-color: orange; color: white;">Write A Review</button></a>
         </div>
       </nav>
       {% block body %}  {% endblock %}
@@ -94,10 +58,10 @@
               </div>
               <div class="col-md-6 col-lg-7 text-center text-md-right">
                 <a href="https://www.facebook.com/Relekars-Kokani-Kitchen-109474680644143/"  target="_blank" class="fb-ic">
-                  <img class="icon" src="{% static 'fb.png' %}">
+                  <img class="icon" src="{% static 'fb.png' %}" style="width: 25px; height: 25px;">
                 </a>
                 <a href="https://instagram.com/relekarskokanikitchen?igshid=dddwlhj5l38y"  target="_blank" class="ig-ic"  >
-                  <img class="icon" src="{% static 'ig.png' %}">
+                  <img class="icon" src="{% static 'ig.png' %}" style="width: 25px; height: 25px;">
                 </a>
               </div>
             </div>
@@ -141,9 +105,9 @@
         </div>
         <!-- Copyright -->
         <div class="footer-copyright text-center text-black-50 py-3"><b>© 2020 | Designed by: Ishan Sharma | <a href="https://www.facebook.com/ishan.sharma.587606"  target="_blank" class="fb-ic">
-                  <img class="icon" src="{% static 'fb.png' %}">
+                  <img class="icon" src="{% static 'fb.png' %}" style="width: 25px; height: 25px;">
                 </a> <a href="https://instagram.com/__pokerface__20__?igshid=scahi8z5vasx"  target="_blank" class="ig-ic"  >
-                  <img class="icon" src="{% static 'ig.png' %}">
+                  <img class="icon" src="{% static 'ig.png' %}"  style="width: 25px; height: 25px;">
                 </a> | All Rights Reserved.</b>
         </div>
       </footer>

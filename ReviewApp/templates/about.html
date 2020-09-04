@@ -2,15 +2,23 @@
 {% block title %}Welcome to Kokani Kitchen | About Us{% endblock %}
 
 {% block css %}
+<style>
+.nav-item:hover {
+	background-color: orange;
+}
+.review:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+ }	
 .aboutimg {
 	border-radius: 60%;
 }
-@media (min-width: 544px) {
+@media (max-width: 544px) {
 	.aboutpara {font-size:1rem;}
 }
 @media (min-width: 992px) {
 	.aboutpara {font-size:1.2rem;}
 }
+</style>
 {% endblock %}
 
 {% block body %}

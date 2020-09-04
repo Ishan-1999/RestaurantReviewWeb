@@ -2,6 +2,13 @@
 {% block title %}Welcome to Kokani Kitchen | Write A Review{% endblock %}
 
 {% block css %}
+<style>
+.nav-item:hover {
+	background-color: orange;
+}
+.review:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+ }	
 .form {
 	color: white;
 	font-size: 20px;
@@ -17,12 +24,14 @@
 .form-control {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
-        @media (min-width: 544px) {
-            img {height:10px; width:10px}
-        }
-        @media (min-width: 992px) {
-            img {height:550px; width:350px}
-        }
+@media (max-width: 544px) {
+	img {height: 365px;}
+}
+@media (min-width: 992px) {
+	img {height:550px;}
+}
+</style>
+
 {% endblock %}
 
 {% block body %}

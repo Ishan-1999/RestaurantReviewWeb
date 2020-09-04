@@ -2,18 +2,25 @@
 {% block title %}Welcome to Kokani Kitchen | About Us{% endblock %}
 
 {% block css %}
+<style>
+	@media (max-width: 544px) {
+		.d-block {height: 170px; width: 240px;}
+	}
+	@media (min-width: 992px) {
+		.d-block {height: 300px; width: 400px;}
+	}
+	</style>
 {% endblock %}
 
 {% block body %}
 {% load static %}
 <div class="container galleryslider">
-	<div class="" style="padding-bottom: 50px">
-		<div class="row">
+	<div class="row" style="padding-bottom: 50px">
 			<div class="col-md-4">
 				<div id="carousel1slider" class="carousel slide  mt-5" data-ride="carousel" style="padding-top: 20px;">
 				  <div class="carousel-inner">
 				    <div class="carousel-item active">
-				      <img src="{% static 'carousel1-1.jpg' %}" class="d-block" alt="..." height="300" width="400">
+				      <img src="{% static 'carousel1-1.jpg' %}" class="d-block" alt="...">
 				      <div class="carousel-caption d-none d-md-block">
 				      </div>
 				    </div>
@@ -75,9 +82,6 @@
 				</div>
 				<h4 align="center" style="color: white"><b>Title</b></h4>
 			</div>
-		</div>
-		
-
 	</div>
 </div>
 {% endblock %}

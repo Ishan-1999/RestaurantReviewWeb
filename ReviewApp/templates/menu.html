@@ -3,8 +3,21 @@
 
 
 {% block css %}
+<style>
+.nav-item:hover {
+	background-color: orange;
+}
+.review:hover {
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+ }	
+.content {
+	color: black; 
+	margin-top: 5px; 
+	margin-left: 5px; 
+	font-family: 'Grandstander'; 
+}
 .card {
-	width: 18rem; 
+	max-width: 18rem; 
 	margin: 10px; 
 	background-color: orange; 
 	font-weight: bold; 
@@ -13,29 +26,77 @@
 	padding-right: 5px; 
 	margin-bottom: 2px; 
 	border: 2px solid white;
+
 }
-.content {
-	color: black; 
-	margin-top: 5px; 
-	margin-left: 5px; 
-	font-family: 'Grandstander'; 
-	font-size:10px; 
+.wrapper {
+	padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
 }
+@media (max-width: 500px) {
+	.wrapper {grid-template-columns: 1fr;grid-template-rows: 40px 40px 40px;}
+	.content {font-size:0.65rem;}
+}
+@media (min-width: 992px) {
+	.content {font-size: 1rem;}
+}
+</style>
 {% endblock %}
 
 {% block body %}
-<div class="container" style="padding-top: 10px; padding-left: 130px;">
-	<h4 style="font-weight: bold; color: white;">Misc</h4>
-	<div class="row" style="padding: 10px;">
-		{% for item in menu %}
-		{% if item.category == 'Misc' %}
-		<div class="card" style="width: 18rem; margin: 10px; background-color: orange; font-weight: bold; padding-top: 2px; padding-left: 5px; padding-right: 5px; margin-bottom: 2px; border: 2px solid white;">
-			<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
-		</div>
-		{% endif %}
-		{% endfor %}
-	</div><br>
-</div>
+	<div class="container" style="padding-bottom: 10px">
+		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Misc</h4>
+		<div class="container wrapper">
+			{% for item in misc %}
+			<div class="card">
+				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+			</div>
+			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+			</div><div class="container wrapper">
+			{% endif %}
+			{% endfor %}</div>
+		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Biryani</h4>
+		<div class="container wrapper">
+			{% for item in biryani %}
+			<div class="card">
+				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+			</div>
+			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+			</div><div class="container wrapper">
+			{% endif %}
+			{% endfor %}</div>	
+		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Veg</h4>
+		<div class="container wrapper">
+			{% for item in veg %}
+			<div class="card">
+				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+			</div>
+			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+			</div><div class="container wrapper">
+			{% endif %}
+			{% endfor %}</div>
+		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Curries</h4>
+		<div class="container wrapper">
+			{% for item in curries %}
+			<div class="card">
+				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+			</div>
+			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+			</div><div class="container wrapper">
+			{% endif %}
+			{% endfor %}</div>	
+		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Fish Fry</h4>
+		<div class="container wrapper">
+			{% for item in fishfry %}
+			<div class="card">
+				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+			</div>
+			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+			</div><div class="container wrapper">
+			{% endif %}
+			{% endfor %}</div>					
+		<br>	
+	</div>	
 {% endblock %}
 
 {% block js %}
