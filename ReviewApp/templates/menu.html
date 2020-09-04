@@ -4,28 +4,32 @@
 
 {% block css %}
 <style>
+.zomato:hover { 
+		transition: 0.5s;
+		padding-right: 10px; 
+	}	
 .nav-item:hover {
 	background-color: orange;
 }
 .review:hover {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
- }	
+ }
 .content {
-	color: black; 
-	margin-top: 5px; 
-	margin-left: 5px; 
-	font-family: 'Grandstander'; 
+	color: white;
+	margin-left: 5px;
+	font-family: 'Grandstander';
 }
 .card {
-	max-width: 18rem; 
-	margin: 10px; 
-	background-color: orange; 
-	font-weight: bold; 
-	padding-top: 2px; 
-	padding-left: 5px; 
-	padding-right: 5px; 
-	margin-bottom: 2px; 
+	max-width: 18rem;
+	margin: 10px;
+	background-color: #262626;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 2px;
 	border: 2px solid white;
+	opacity: 0.8;
 
 }
 .wrapper {
@@ -35,10 +39,10 @@
 }
 @media (max-width: 500px) {
 	.wrapper {grid-template-columns: 1fr;grid-template-rows: 40px 40px 40px;}
-	.content {font-size:0.65rem;}
+	.content {font-size:0.8rem; margin-top: 2px;}
 }
 @media (min-width: 992px) {
-	.content {font-size: 1rem;}
+	.content {font-size: 1rem; margin-top: 10px;}
 }
 </style>
 {% endblock %}
@@ -49,7 +53,7 @@
 		<div class="container wrapper">
 			{% for item in misc %}
 			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -59,7 +63,7 @@
 		<div class="container wrapper">
 			{% for item in biryani %}
 			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -69,7 +73,7 @@
 		<div class="container wrapper">
 			{% for item in veg %}
 			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -79,7 +83,7 @@
 		<div class="container wrapper">
 			{% for item in curries %}
 			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -89,7 +93,7 @@
 		<div class="container wrapper">
 			{% for item in fishfry %}
 			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: black;">{{item.dprice}}/-</span></p>
+				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">

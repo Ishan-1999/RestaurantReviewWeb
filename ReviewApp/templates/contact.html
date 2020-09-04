@@ -3,6 +3,10 @@
 
 {% block css %}
 <style>
+.zomato:hover { 
+		transition: 0.5s;
+		padding-right: 10px; 
+	}
 .nav-item:hover {
 	background-color: orange;
 }
@@ -25,10 +29,10 @@
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 @media (max-width: 544px) {
-	img {height: 365px;}
+	.img {height: 365px;}
 }
 @media (min-width: 992px) {
-	img {height:550px;}
+	.img {height:550px;}
 }
 </style>
 {% endblock %}
@@ -60,7 +64,7 @@
 			</form>
 		</div>
 		<div class="col-md-6" align="center">
-			<img src="{% static 'ads.jpg' %}" height="550px" style="margin-top: 30px; margin-bottom: 10px;">
+			<img class="img" src="{% static 'ads.jpg' %}" style="margin-top: 30px; margin-bottom: 10px;">
 		</div>
 	</div>
 </div>
