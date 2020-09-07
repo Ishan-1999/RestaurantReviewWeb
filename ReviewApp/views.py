@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Review, Contact, Menu
+from .models import Review, Querie, Dishe
 
 
 # Create your views here.
@@ -8,11 +8,11 @@ def index(request):
 
 
 def menu(request):
-    misc = Menu.objects.filter(category = 'Misc')
-    biryani = Menu.objects.filter(category = 'Biryani')
-    veg = Menu.objects.filter(category = 'Veg')
-    curries = Menu.objects.filter(category = 'Curries')
-    fishfry = Menu.objects.filter(category = 'Fish Fry')
+    misc = Dishe.objects.filter(category = 'Misc')
+    biryani = Dishe.objects.filter(category = 'Biryani')
+    veg = Dishe.objects.filter(category = 'Veg')
+    curries = Dishe.objects.filter(category = 'Curries')
+    fishfry = Dishe.objects.filter(category = 'Fish Fry')
 
     return render(request, 'menu.html', {'misc': misc, 'biryani': biryani, 'veg': veg, 'curries': curries, 'fishfry': fishfry})
 
@@ -55,7 +55,7 @@ def contact(request):
         phone = request.POST.get('phone', '')
         query = request.POST.get('query', '')
 
-        query = Contact(date=date, name=name, email=email, phone=phone,  query=query)
+        query = Querie(date=date, name=name, email=email, phone=phone,  query=query)
         query.save()
 
     return render(request, 'contact.html')

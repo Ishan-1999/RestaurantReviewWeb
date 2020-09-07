@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Review, Contact, Menu
+from .models import Review, Querie, Dishe
 
 
 admin.site.site_header = 'KokaniKitchen Administration'
 
 # Register your models here.
 admin.site.register(Review)
-admin.site.register(Contact)
-admin.site.register(Menu)
+admin.site.register(Querie)
+admin.site.register(Dishe)

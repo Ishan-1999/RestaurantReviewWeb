@@ -15,8 +15,8 @@ class Review(models.Model):
         return self.name
 
 
-class Contact(models.Model):
-    contact_id = models.AutoField(primary_key=True)
+class Querie(models.Model):
+    query_id = models.AutoField(primary_key=True)
     date = models.CharField(max_length=50, default="")
     name = models.CharField(max_length=50, default="")
     email = models.CharField(max_length=70, default="")
@@ -27,7 +27,7 @@ class Contact(models.Model):
         return self.name
 
 
-class Menu(models.Model):
+class Dishe(models.Model):
     dish_id = models.AutoField(primary_key=True)
     dname = models.CharField(max_length=50, default="")
     category = models.CharField(max_length=50, default="")
