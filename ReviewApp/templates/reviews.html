@@ -24,7 +24,14 @@
 	.date {font-size:0.8rem;}
 	.name {font-size:1.0rem;}
 	.ratings {width:90px;}
-	.img {height: 215px;margin-left: 22px;}
+	.img {height: 215px;}
+}
+@media ((min-width: 500px) and (max-width: 800px)) {
+	.review {font-size:1.2rem;}
+	.date {font-size:0.8rem;}
+	.name {font-size:1.0rem;}
+	.ratings {width:90px;}
+	.img {height: 215px;}
 }
 @media (min-width: 992px) {
 	.review {font-size: 15px;}
@@ -60,7 +67,7 @@
 			</div>	
 			{% endfor %}
 		</div>
-		<div class="container-fluid col-md-6">
+		<div class="container-fluid col-md-6" align="center">
 			 <img class="img mt-5" src="{% static 'collage1.jpg' %}">
 		</div>
 	</div>	
