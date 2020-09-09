@@ -7,21 +7,40 @@
 		transition: 0.5s;
 		padding-right: 10px; 
 	}
+	.card {
+		max-width: 18rem;
+		margin: 10px;
+		background-color: #262626;
+		font-weight: bold;
+		padding-top: 2px;
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-bottom: 2px;
+		border: 2px solid white;
+		opacity: 0.8;
+
+	}
 	@media (max-width: 544px) {
 		.d-block {height: 275px; width: 375px;}
+		.title {font-size: 25px;}
 	}
 	@media ((min-width: 500px) and (max-width: 800px)) {
 		.d-block {height: 210px; width: 210px;}
+		.title {font-size: 25px;}
+		.title_class {font-size: 50px;  margin-left: 135px}
 	}
 	@media (min-width: 992px) {
 		.d-block {height: 300px; width: 400px;}
+		.title_class {font-size: 50px;  margin-left: 315px}
 	}
 	</style>
 {% endblock %}
 
 {% block body %}
 {% load static %}
+
 <div class="container galleryslider">
+	<div class="card title_class" align="center" style="max-width: 420px; min-width: 220px;"><p class="title" style="color: orange; font-weight: bold;">Kokani Kitchen</p></div><br>
 	<div class="row" style="padding-bottom: 50px">
 			<div class="col-md-4">
 				<div id="carousel1slider" class="carousel slide  mt-5" data-ride="carousel" style="padding-top: 20px;">
