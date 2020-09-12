@@ -43,15 +43,15 @@
         </div>
       </nav>
       <!-- Today's Special -->
-      <div style="top: 15%; right: 0; transform: translateY(-50); position: fixed; z-index: 100;">
-        <div class="today_transform" align="center" style="background-color: orange; padding: 2px;">
+      <div class="today">
+        <div class="today_margin" align="center">
           {% for i in today %}
-          <p><b><u>Today's Special</u></b><br><span style="color: white;"><b>{{i.dname}}</b></span><span class="float-right ml-2" style="color: white;"><b>{{i.dprice}}/-</b></span></p>
+          <p class="today_text"><b><u style="text-shadow: 0 0 3px white, 0 0 5px white;">Today's Special</u></b><br><span style="color: white;text-shadow: 0 0 3px blue, 0 0 5px white;"><b>{{i.dname}}</b></span></p><br>
           {% endfor %}
         </div>  
       </div>
       <!-- Zomato icon -->
-      <div class="icons" style="top: 30%; right: 0; transform: translateY(-50); position: fixed; z-index: 100;">
+      <div class="icons" style="top: 35%; right: 0; transform: translateY(-50); position: fixed; z-index: 100;">
         <div class="zomato" style="background-color: #E23744">
           <a href="#"><img src="{% static 'zomato.png' %}" height="60px"></a>
         </div>  

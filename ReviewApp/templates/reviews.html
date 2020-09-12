@@ -2,6 +2,7 @@
 {% block title %}Welcome to Kokani Kitchen | Reviews{% endblock %}
 
 {% block css %}
+{% load static %}
 <style>
 .zomato:hover { 
 		transition: 0.5s;
@@ -18,13 +19,65 @@
 }
 .review {
 	margin-top: 5px;
+}
+.img_review:hover {
+	transform: scale(1.1);
+}
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+}
+.modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	-webkit-animation-name: zoom;
+	-webkit-animation-duration: 0.6s;
+	animation-name: zoom;
+	animation-duration: 0.6s;	
 } 	 	
+@-webkit-keyframes zoom{
+	from {-webkit-transform: scale(0);}
+	to {-webkit-transform: scale(1);}
+}
+
+@keyframes zoom{
+	from {transform: scale(0);}
+	to {transform: scale(1);}
+}
+.close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.close:hover, .close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
 @media (max-width: 544px) {
 	.review {font-size:1.2rem;}
 	.date {font-size:0.8rem;}
 	.name {font-size:1.0rem;}
 	.ratings {width:90px;}
 	.img {height: 215px;}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 175px;background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 175px;}
+	.today_margin {padding: 2px; margin-right: 31px; margin-top: 17px;}
+	.today_text {font-size: 11px;}
 }
 @media ((min-width: 500px) and (max-width: 800px)) {
 	.review {font-size:1.2rem;}
@@ -32,11 +85,16 @@
 	.name {font-size:1.0rem;}
 	.ratings {width:90px;}
 	.img {height: 215px;}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 175px;background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 175px;}
+	.today_margin {padding: 2px; margin-right: 31px; margin-top: 17px;}
+	.today_text {font-size: 11px;}
 }
 @media (min-width: 992px) {
 	.review {font-size: 15px;}
 	.ratings {width:110px;}
 	.img {height: 420px;margin-left: 35px;}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 250px; background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 250px;}
+	.today_margin {padding: 2px; margin-right: 45px; margin-top: 24px;}
 }
 </style>
 {% endblock %}
@@ -45,7 +103,7 @@
 {% load static %}
 <div class="container mt-5">
 	<div class="row" style="padding-bottom: 20px;">
-		<div class="col-md-6">
+		<div class="col-md-6" style="overflow: auto;">
 			{% for review in reviews reversed %}
 			<div class="card mb-5 bg-light" style="padding: 10px;">
 				<br>
@@ -63,6 +121,15 @@
 				{% endif %}
 				</span></p>
 				<small class="date">{{ review.date }}</small>
+				{% if review.image %}
+				<img id="revimg" class="img_review" src="/media/{{ review.image }}" style="width: 100px; margin-top: 2px;">
+				{% endif %}
+				<div id="myModal" class="modal">
+					<span class="close">&times;
+						
+					</span>
+					<img class="modal-content" id="modimg">
+				</div>
 				<p class="review">"{{review.review}}"</p>
 			</div>	
 			{% endfor %}
@@ -78,5 +145,18 @@
 {% block js %}
 <script>
 	document.getElementById('reviews').setAttribute("class", "nav-item active");
+
+	var modal = document.getElementById('myModal');
+	var modalImg = document.getElementById('modimg');
+	
+	$('img').on('click', function () {
+        modal.style.display = 'block';
+		modalImg.src = this.src;      
+    });
+
+	var span = document.getElementsByClassName('close')[0];
+	span.onclick = function() {
+		modal.style.display = 'none';
+	}
 </script>
 {% endblock %}

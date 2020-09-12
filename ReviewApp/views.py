@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Review, Querie, Dishe, TodaysSpecial
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -35,9 +36,20 @@ def write_review(request):
         phone = request.POST.get('phone', '')
         ratings = request.POST.get('ratings', '')
         review = request.POST.get('review', '')
+        uploaded_file = request.FILES.get('image', '')
+        if uploaded_file != '':
+            if uploaded_file.content_type == 'image/jpeg':
+                reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review,
+                                 image=uploaded_file)
+                reviews.save()
+            else:
+                reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
+                reviews.save()
+        else:
+            reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
+            reviews.save()
 
-        reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
-        reviews.save()
+
 
     return render(request, 'write_review.html', {'today': today})
 

@@ -3,6 +3,7 @@
 
 
 {% block css %}
+{% load static %}
 <style>
 .zomato:hover { 
 		transition: 0.5s;
@@ -38,19 +39,27 @@
 	grid-template-columns: 1fr 1fr 1fr;
 }
 @media (max-width: 500px) {
-	.wrapper {grid-template-columns: 1fr;grid-template-rows: 40px 40px 40px;}
-	.content {font-size:0.8rem; margin-top: 2px;}
+	.wrapper {grid-template-columns: 1fr;grid-template-rows: 50px 50px 50px;}
+	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px;}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 175px;background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 175px;}
+	.today_margin {padding: 2px; margin-right: 31px; margin-top: 17px;}
+	.today_text {font-size: 11px;}
 }
 @media ((min-width: 500px) and (max-width: 800px)) {
-	.wrapper {grid-template-columns: 1fr 1fr;grid-template-rows: 40px 40px 40px;}
-	.content {font-size:0.8rem; margin-top: 2px;}
+	.wrapper {grid-template-columns: 1fr 1fr;grid-template-rows: 50px 50px 50px;}
+	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px;}
 	.title_class {font-size: 50px;  margin-left: 135px}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 175px;background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 175px;}
+	.today_margin {padding: 2px; margin-right: 31px; margin-top: 17px;}
+	.today_text {font-size: 11px;}
 }
 @media (min-width: 992px) {
-	.content {font-size: 1rem; margin-top: 10px;}
+	.content {font-size: 1.5rem; margin-top: 10px;}
 	.title_class {font-size: 50px;  margin-left: 315px}
+	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 250px; background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 250px;}
+	.today_margin {padding: 2px; margin-right: 45px; margin-top: 24px;}
 }
 </style>
 {% endblock %}
@@ -61,8 +70,8 @@
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Curries</h4>
 		<div class="container wrapper">
 			{% for item in curries %}
-			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
+			<div class="card" align="center">
+				<p class="content">{{item.dname}}<!-- <span style="float: right; color: white;">{{item.dprice}}/-</span> --></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -71,8 +80,8 @@
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Fish Fry</h4>
 		<div class="container wrapper">
 			{% for item in fishfry %}
-			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
+			<div class="card" align="center">
+				<p class="content">{{item.dname}}<!-- <span style="float: right; color: white;">{{item.dprice}}/-</span> --></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -81,8 +90,8 @@
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Biryani</h4>
 		<div class="container wrapper">
 			{% for item in biryani %}
-			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
+			<div class="card" align="center">
+				<p class="content">{{item.dname}}<!-- <span style="float: right; color: white;">{{item.dprice}}/-</span> --></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -91,8 +100,8 @@
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Veg</h4>
 		<div class="container wrapper">
 			{% for item in veg %}
-			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
+			<div class="card" align="center">
+				<p class="content">{{item.dname}}<!-- <span style="float: right; color: white;">{{item.dprice}}/-</span> --></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
@@ -101,8 +110,8 @@
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px;">Misc</h4>
 		<div class="container wrapper">
 			{% for item in misc %}
-			<div class="card">
-				<p class="content">{{item.dname}}<span style="float: right; color: white;">{{item.dprice}}/-</span></p>
+			<div class="card" align="center">
+				<p class="content">{{item.dname}}<!-- <span style="float: right; color: white;">{{item.dprice}}/-</span> --></p>
 			</div>
 			{% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
 			</div><div class="container wrapper">
