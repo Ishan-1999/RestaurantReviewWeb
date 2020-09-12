@@ -103,7 +103,7 @@
 {% load static %}
 <div class="container mt-5">
 	<div class="row" style="padding-bottom: 20px;">
-		<div class="col-md-6" style="overflow: auto;">
+		<div class="col-md-6" style="overflow: auto; height: 700px;">
 			{% for review in reviews reversed %}
 			<div class="card mb-5 bg-light" style="padding: 10px;">
 				<br>
@@ -148,7 +148,7 @@
 
 	var modal = document.getElementById('myModal');
 	var modalImg = document.getElementById('modimg');
-	
+
 	$('img').on('click', function () {
         modal.style.display = 'block';
 		modalImg.src = this.src;      
