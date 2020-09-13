@@ -121,16 +121,26 @@
 				{% endif %}
 				</span></p>
 				<small class="date">{{ review.date }}</small>
-				{% if review.image %}
-				<img id="revimg" class="img_review" src="/media/{{ review.image }}" style="width: 100px; margin-top: 2px;">
-				{% endif %}
+				
 				<div id="myModal" class="modal">
 					<span class="close">&times;
 						
 					</span>
 					<img class="modal-content" id="modimg">
 				</div>
+
 				<p class="review">"{{review.review}}"</p>
+				<span>
+				{% if review.image1 %}
+				<img id="revimg" class="img_review" src="/media/{{ review.image1 }}" style="width: 100px; margin-top: 2px;">
+				{% endif %}
+				{% if review.image2 %}
+				<img id="revimg" class="img_review" src="/media/{{ review.image2 }}" style="width: 100px; margin-top: 2px;">
+				{% endif %}
+				{% if review.image3 %}
+				<img id="revimg" class="img_review" src="/media/{{ review.image3 }}" style="width: 100px; margin-top: 2px;">
+				{% endif %}
+				</span>
 			</div>	
 			{% endfor %}
 		</div>

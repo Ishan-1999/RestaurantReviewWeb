@@ -36,20 +36,27 @@ def write_review(request):
         phone = request.POST.get('phone', '')
         ratings = request.POST.get('ratings', '')
         review = request.POST.get('review', '')
-        uploaded_file = request.FILES.get('image', '')
-        if uploaded_file != '':
-            if uploaded_file.content_type == 'image/jpeg':
+        uploaded_file = request.FILES.getlist('image')
+        if uploaded_file:
+            for f in uploaded_file:
+                if f.content_type != 'image/jpeg':
+                    uploaded_file.remove(f)
+            length = len(uploaded_file)
+            if length == 1:
                 reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review,
-                                 image=uploaded_file)
+                                 image1=uploaded_file[0])
                 reviews.save()
-            else:
-                reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
+            elif length == 2:
+                reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review,
+                                 image1=uploaded_file[0], image2=uploaded_file[1])
+                reviews.save()
+            elif length == 3:
+                reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review,
+                                 image1=uploaded_file[0], image2=uploaded_file[1], image3=uploaded_file[2])
                 reviews.save()
         else:
             reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
             reviews.save()
-
-
 
     return render(request, 'write_review.html', {'today': today})
 

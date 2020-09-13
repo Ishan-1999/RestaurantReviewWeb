@@ -9,7 +9,9 @@ class Review(models.Model):
     email = models.CharField(max_length=70, default="")
     phone = models.CharField(max_length=70, default="")
     ratings = models.CharField(max_length=10, default="5")
-    image = models.ImageField(upload_to="ReviewApp/images", null=True, blank=True)
+    image1 = models.ImageField(upload_to="ReviewApp/images", null=True, blank=True)
+    image2 = models.ImageField(upload_to="ReviewApp/images", null=True, blank=True)
+    image3 = models.ImageField(upload_to="ReviewApp/images", null=True, blank=True)
     review = models.CharField(max_length=1000, default="")
 
     def __str__(self):
@@ -31,7 +33,7 @@ class Querie(models.Model):
 class Dishe(models.Model):
     dish_id = models.AutoField(primary_key=True)
     dname = models.CharField(max_length=50, default="")
-    category = models.CharField(max_length=50, default="")
+    category = models.CharField(max_length=50, default="", choices=[('Curries', 'Curries'), ('Fish Fry','Fish Fry'), ('Biryani', 'Biryani'), ('Veg', 'Veg'), ('Misc', 'Misc')])
     dprice = models.IntegerField(default=0)
 
     def __str__(self):
