@@ -5,8 +5,7 @@ from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def index(request):
-    today = TodaysSpecial.objects.all()
-    return render(request, 'index.html', {'today': today})
+    return render(request, 'index.html')
 
 
 def menu(request):
@@ -22,12 +21,10 @@ def menu(request):
 
 
 def gallery(request):
-    today = TodaysSpecial.objects.all()
-    return render(request, 'gallery.html', {'today': today})
+    return render(request, 'gallery.html')
 
 
 def write_review(request):
-    today = TodaysSpecial.objects.all()
 
     if request.method == 'POST':
         date = request.POST.get('date', '')
@@ -58,25 +55,17 @@ def write_review(request):
             reviews = Review(date=date, name=name, email=email, phone=phone, ratings=ratings, review=review)
             reviews.save()
 
-    return render(request, 'write_review.html', {'today': today})
-
-
-def about(request):
-    today = TodaysSpecial.objects.all()
-
-    return render(request, 'about.html', {'today': today})
+    return render(request, 'write_review.html')
 
 
 def reviews(request):
-    today = TodaysSpecial.objects.all()
     reviews = Review.objects.all()
     length = len(reviews)
 
-    return render(request, 'reviews.html', {'reviews': reviews, 'length': length, 'today': today})
+    return render(request, 'reviews.html', {'reviews': reviews, 'length': length})
 
 
 def contact(request):
-    today = TodaysSpecial.objects.all()
 
     if request.method == 'POST':
         date = request.POST.get('date', '')
@@ -88,4 +77,4 @@ def contact(request):
         query = Querie(date=date, name=name, email=email, phone=phone,  query=query)
         query.save()
 
-    return render(request, 'contact.html', {'today': today})
+    return render(request, 'contact.html')

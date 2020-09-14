@@ -42,14 +42,6 @@
           <a href="{% url 'write_review' %}"><button type="button" class="btn mb-2 mr-2 float-right review" style="background-color: orange; border-color: orange; color: white;">Write A Review</button></a>
         </div>
       </nav>
-      <!-- Today's Special -->
-      <div class="today">
-        <div class="today_margin" align="center">
-          {% for i in today %}
-          <p class="today_text"><b><u style="text-shadow: 0 0 3px black, 0 0 5px black; color: white;">Today's Special</u></b><br><span style="color: white;text-shadow: 0 0 3px red, 0 0 5px black;"><b>{{i.dname}}</b></span></p><br>
-          {% endfor %}
-        </div>  
-      </div>
       <!-- Zomato icon -->
       <div class="icons" style="top: 35%; right: 0; transform: translateY(-50); position: fixed; z-index: 100;">
         <div class="zomato" style="background-color: #E23744">
