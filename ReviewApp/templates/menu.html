@@ -66,7 +66,7 @@ marquee {
 	<div class="container" style="padding-bottom: 10px">
 		<div class="m-2" style="background-image: url('{% static 'giphy.gif' %}'); background-repeat: no-repeat; background-size: 1260px;">
 			{% for i in today %}
-			<marquee><img src="{% static 'fish1.png' %}" height="40px"><span style="margin-left: 5px; text-shadow: 2px 2px #ff0000;">Today's Special</span>: <span style="margin-right: 5px; text-shadow: 2px 2px #ff0000;">{{ i.dname }}</span><img src="{% static 'fish1.png' %}" height="40px"></marquee>
+			<marquee><img src="{% static 'fish1.png' %}" height="40px"><span style="color: #f2a614; margin-left: 5px; text-shadow: 2px 2px 8px black;">Today's Special:</span> <span style="margin-right: 5px; text-shadow: 2px 2px 8px black;">{{ i.dname }}</span><img src="{% static 'fish1.png' %}" height="40px"></marquee>
 			{% endfor %}
 		</div><br><br>
 		<div class="card title_class" align="center" style="max-width: 420px; min-width: 220px;"><p class="title" style="color: orange; font-weight: bold;">Kokani Kitchen</p></div><br>
