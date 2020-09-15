@@ -10,6 +10,7 @@ marquee {
 	color: white;
 	font-size: 25px;
 	padding: 5px;
+	max-width: 900px;
 }
 .zomato:hover { 
 		transition: 0.5s;
@@ -48,26 +49,37 @@ marquee {
 	.wrapper {grid-template-columns: 1fr;grid-template-rows: 50px 50px 50px;}
 	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px; margin-top: 5px;}
+	.banner_img {height: 65px;}
+	marquee {margin-top: 8px;}
 }
 @media ((min-width: 500px) and (max-width: 800px)) {
 	.wrapper {grid-template-columns: 1fr 1fr;grid-template-rows: 50px 50px 50px;}
 	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px; margin-top: 5px;}
 	.title_class {font-size: 50px;  margin-left: 135px}
+	marquee {margin-top: 23px;}
 }
 @media (min-width: 992px) {
 	.content {font-size: 1.5rem; margin-top: 10px;}
 	.title_class {font-size: 50px;  margin-left: 315px}
+	.banner_img {height: 100px;}
+	marquee {margin-top: 25px;}
 }
 </style>
 {% endblock %}
 
 {% block body %}
 	<div class="container" style="padding-bottom: 10px">
-		<div class="m-2" style="background-image: url('{% static 'giphy.gif' %}'); background-repeat: no-repeat; background-size: 1260px;">
+		<div class="m-2 banner grid-container" style="display: grid; grid-template-rows: 1fr; grid-template-columns: auto auto auto;">
+			<div class="grid-item"><img class="banner_img" src="{% static 'prawn1.png' %}" height="100px"></div>
+			<div class="grid-item">
 			{% for i in today %}
-			<marquee><img src="{% static 'fish1.png' %}" height="40px"><span style="color: #f2a614; margin-left: 5px; text-shadow: 2px 2px 8px black;">Today's Special:</span> <span style="margin-right: 5px; text-shadow: 2px 2px 8px black;">{{ i.dname }}</span><img src="{% static 'fish1.png' %}" height="40px"></marquee>
+			<marquee><span>---|-</span><span style="color: #f2a614; margin-left: 5px; text-shadow: 2px 2px 8px black;">Today's Special:</span> <span style="margin-right: 5px; text-shadow: 2px 2px 8px black;">{{ i.dname }}</span><span>-|---</span></marquee>
 			{% endfor %}
+			</div>
+			<div class="grid-item"><img class="banner_img" src="{% static 'prawn2.png' %}" height="100px"></div>
+			
+			
 		</div><br><br>
 		<div class="card title_class" align="center" style="max-width: 420px; min-width: 220px;"><p class="title" style="color: orange; font-weight: bold;">Kokani Kitchen</p></div><br>
 		<h4 style="font-weight: bold; color: white; margin-left: 20px; margin-top: 20px; font-size: 2rem;">Curries</h4>
