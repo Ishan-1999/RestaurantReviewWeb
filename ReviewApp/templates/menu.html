@@ -9,7 +9,6 @@ marquee {
 	font-weight: bold;
 	color: white;
 	font-size: 25px;
-	padding: 5px;
 	max-width: 900px;
 }
 .zomato:hover { 
@@ -50,34 +49,37 @@ marquee {
 	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px; margin-top: 5px;}
 	.banner_img {height: 65px;}
-	marquee {margin-top: 8px;}
+	.banner {margin-top: 20px;}
 }
 @media ((min-width: 500px) and (max-width: 800px)) {
 	.wrapper {grid-template-columns: 1fr 1fr;grid-template-rows: 50px 50px 50px;}
 	.content {font-size:1rem; margin-top: 2px;}
 	.title {font-size: 25px; margin-top: 5px;}
 	.title_class {font-size: 50px;  margin-left: 135px}
-	marquee {margin-top: 23px;}
+	.banner_img {height: 100px;}
+	.banner {margin-top: 40px;}
 }
 @media (min-width: 992px) {
 	.content {font-size: 1.5rem; margin-top: 10px;}
 	.title_class {font-size: 50px;  margin-left: 315px}
 	.banner_img {height: 100px;}
-	marquee {margin-top: 25px;}
+	.banner {margin-top: 40px;}
 }
 </style>
 {% endblock %}
 
 {% block body %}
 	<div class="container" style="padding-bottom: 10px">
-		<div class="m-2 banner grid-container" style="display: grid; grid-template-rows: 1fr; grid-template-columns: auto auto auto;">
-			<div class="grid-item"><img class="banner_img" src="{% static 'prawn1.png' %}" height="100px"></div>
-			<div class="grid-item">
+		<div class="m-2 grid-container" style="display: grid; grid-template-rows: 1fr; grid-template-columns: auto auto auto;">
+			<div class="grid-item" align="center"><img class="banner_img" src="{% static 'prawn1.png' %}"></div>
+			<div class="grid-item" align="center">
 			{% for i in today %}
-			<marquee><span>---|-</span><span style="color: #f2a614; margin-left: 5px; text-shadow: 2px 2px 8px black;">Today's Special:</span> <span style="margin-right: 5px; text-shadow: 2px 2px 8px black;">{{ i.dname }}</span><span>-|---</span></marquee>
+			<div class="banner" style="background-color: orange; opacity: 0.8; border: 2px solid white;" align="center">
+			<marquee><span style="color: black;">---|-</span><span style="color: red; margin-left: 5px; text-shadow: 2px 2px 8px white;">Today's Special:</span> <span style="margin-right: 5px; text-shadow: 2px 2px 8px black;">{{ i.dname }}</span><span style="color: black;">-|---</span></marquee>
+			</div>
 			{% endfor %}
 			</div>
-			<div class="grid-item"><img class="banner_img" src="{% static 'prawn2.png' %}" height="100px"></div>
+			<div class="grid-item" align="center"><img class="banner_img" src="{% static 'prawn2.png' %}"></div>
 			
 			
 		</div><br><br>
