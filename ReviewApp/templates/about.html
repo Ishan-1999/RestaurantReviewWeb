@@ -19,14 +19,15 @@
 }
 @media (max-width: 544px) {
 	.aboutpara {font-size:1rem;}
-	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 175px;background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 175px;}
-	.today_margin {padding: 2px; margin-right: 31px; margin-top: 17px;}
-	.today_text {font-size: 11px;}
+	.aboutimg {max-height: 175px;}
+}
+@media ((min-width: 500px) and (max-width: 992px)) {
+	.aboutpara {font-size:1.3rem;}
+	.aboutimg {max-height: 210px;}
 }
 @media (min-width: 992px) {
-	.aboutpara {font-size:1.2rem;}
-	.today {top: 15%; right: 0; position: fixed; z-index: 100; width: 250px; background-image: url('{% static 'fishcol.png' %}'); background-repeat: no-repeat; background-size: 250px;}
-	.today_margin {padding: 2px; margin-right: 45px; margin-top: 24px;}
+	.aboutpara {font-size:1.5rem;}
+	.aboutimg {max-height: 270px;}
 }
 </style>
 {% endblock %}
@@ -34,20 +35,21 @@
 {% block body %}
 {% load static %}
 <div class="container about mt-5">
-	<div class="row" style="padding-bottom: 50px">
-		<div class="col-md-4">
-			<img class="img-fluid aboutimg" src="{% static 'aboutpic1.jpg' %}" height="300px">
+	<div class="row">
+		<div class="col-md-4" align="center">
+			<img class="aboutimg" src="{% static 'logo.jpg' %}">
 		</div>
 		<div class="col-md-8">
-			<p class="aboutpara" style="color: white; padding-top:30px">Hey there, I'm Tommy Cruise. I live in Pune, Maharashtra. I started this business with my wife. My wife, Selena, is a such a great Cook, so I thought why not open an online restaurant business, Let others also get the pleasure. </p>
-		</div>		
-	</div>
-	<div class="row" style="padding-bottom: 20px">
-		<div class="col-md-8">
-			<p class="aboutpara" style="color: white; padding-top:30px">American actor Mark Wahlberg is one of a handful of respected entertainers who successfully made the transition from teen pop idol to acclaimed actor. A Best Supporting Actor Oscar nominee for The Departed (2006) who went on to receive positive critical reviews for his performance in The Fighter (2010), Wahlberg also is a solid comedy actor, proven by his starring role in Ted (2012).</p>
-		</div>
-		<div class="col-md-4">
-			<img class="img-fluid aboutimg" src="{% static 'aboutpic2.jpg' %}" height="300px">
+			<p class="aboutpara" style="color: white">A konkani by food choices is always a konkani by heart.</p>
+<p class="aboutpara" style="color: white;">And how will something that is done with love and   compassion about the traditions , the warmth of your native be anything less then incredible?</p>
+
+<p class="aboutpara" style="color: white;">So here we are , hailing from the coastal region of the famous and authentic konkan.</p>
+
+<p class="aboutpara" style="color: white;">Ready to serve you the age old recipes with the hint of our innovation. Not to forget keeping the ancient flavour alive to be just, to your choice of the malvani tadka.</p>
+
+<p class="aboutpara" style="color: white;">We welcome you to relish on all the seafood  delicacies and much more at Relekar's konkani kitchen.</p>
+
+<p class="aboutpara" style="color: white;">Order food, get happiness along.</p>
 		</div>		
 	</div>
 </div>

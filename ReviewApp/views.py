@@ -24,6 +24,10 @@ def gallery(request):
     return render(request, 'gallery.html')
 
 
+def about(request):
+    return render(request, 'about.html')
+
+
 def write_review(request):
 
     if request.method == 'POST':
